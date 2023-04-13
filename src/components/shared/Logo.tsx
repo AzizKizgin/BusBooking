@@ -6,7 +6,7 @@ import { screen } from "../../utils/consts";
 
 const Logo = () => {
   return (
-    <Box position='absolute' top={5} alignSelf='center'>
+    <Box alignSelf='center'>
       <Image
         source={require("../../assets/images/logo.png")}
         alt='logo'
