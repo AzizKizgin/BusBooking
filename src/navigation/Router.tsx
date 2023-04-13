@@ -4,13 +4,13 @@ import React from "react";
 import AuthenticationNav from "./AuthenticationNav";
 import MainNav from "./MainNav";
 import { NavigationContainer } from "@react-navigation/native";
-import { getAuth } from "firebase/auth";
+import { useAuth } from "../context/AuthContex";
 
 const Router = () => {
-  const auth = getAuth();
+  const { user } = useAuth();
   return (
     <NavigationContainer>
-      {auth ? <MainNav /> : <AuthenticationNav />}
+      {user ? <MainNav /> : <AuthenticationNav />}
     </NavigationContainer>
   );
 };
