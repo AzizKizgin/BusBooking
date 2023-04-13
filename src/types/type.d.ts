@@ -2,6 +2,6 @@
 
 type AuthenticationParamsList = {
   Login: undefined;
-  SignUp: undefined;
+  Register: undefined;
   ForgotPassword: undefined;
 };
