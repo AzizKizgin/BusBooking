@@ -16,6 +16,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { addUserInfo } from "../data/data";
 import { auth } from "../firebase/firebaseConfig";
 import { useLocalization } from "./LocalizationContext";
 
@@ -64,10 +65,13 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
   const { strings } = useLocalization();
 
   useEffect(() => {
-    const subscriber = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-    });
-    return subscriber;
+    const getUser = async () => {
+      const user = auth.currentUser;
+      if (user) {
+        setUser(user);
+      }
+    };
+    getUser();
   }, []);
 
   const login = async ({ email, password }: LoginProps) => {
@@ -97,7 +101,19 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
     surname,
   }: RegisterProps) => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, email, password).then(
+        async (user) => {
+          addUserInfo({
+            birthDate,
+            email: email.toLowerCase(),
+            gender,
+            identityNumber,
+            name,
+            surname,
+            id: user.user?.uid,
+          });
+        },
+      );
     } catch (error) {
       showToast({
         color: "error",
