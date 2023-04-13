@@ -17,7 +17,7 @@ import {
   useState,
 } from "react";
 import { auth } from "../firebase/firebaseConfig";
-import { useLocalization } from "./LocalizationContex";
+import { useLocalization } from "./LocalizationContext";
 
 interface AuthContextProps {
   children: ReactNode;
