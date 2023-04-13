@@ -11,7 +11,7 @@
   "dependencies": {
     "@aziz_kizgin/react-native-checkbox": "^1.0.1",
     "@aziz_kizgin/react-native-toast-message": "^1.0.4",
-    "@react-native-async-storage/async-storage": "^1.18.1",
+    "@react-native-async-storage/async-storage": "1.17.11",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
     "expo": "~48.0.10",
