@@ -10,9 +10,17 @@ import FormInput from "../shared/FormInput";
 import { LoginSchema } from "../../utils/formValidations";
 import { useAuth } from "../../context/AuthContext";
 import ForgotPasswordText from "./ForgotPasswordText";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
+
 const LoginForm = () => {
   const { strings } = useLocalization();
   const { login } = useAuth();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AuthenticationParamsList>>();
+  const onPress = () => {
+    navigation.navigate("Register");
+  };
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
@@ -44,7 +52,7 @@ const LoginForm = () => {
             <ForgotPasswordText />
           </Box>
           <Button title={strings.login} onPress={() => handleSubmit()} />
-          <Pressable>
+          <Pressable onPress={onPress}>
             <Text color='frenchBlue' fontSize='md' textAlign='center'>
               {strings.dontHaveAccount}
               <Text color='frenchBlue' fontWeight={"bold"} underline={true}>
