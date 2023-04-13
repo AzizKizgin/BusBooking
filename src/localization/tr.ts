@@ -1,0 +1,26 @@
+/** @format */
+
+export const tr = {
+  email: "E-posta",
+  password: "Şifre",
+  forgotPassword: "Şifremi Unuttum?",
+  login: "Giriş Yap",
+  dontHaveAccount: "Hesabın yok mu? ",
+  signUp: "Kayıt Ol",
+  username: "Kullanıcı Adı",
+  confirmPassword: "Şifreyi Tekrarla",
+  agreeToTerms: "Hizmet Şartlarını kabul ediyorum",
+  alreadyHaveAccount: "Zaten bir hesabın var mı? ",
+  send: "Gönder",
+  emailIsRequired: "E-posta gerekli",
+  emailIsInvalid: "E-posta adresi geçersiz",
+  passwordIsRequired: "Şifre gerekli",
+  passwordNeedsToBe6CharactersOrMore: "Şifre 6 karakterden uzun olmalı",
+  passwordDoesNotMatch: "Şifre eşleşmiyor",
+  usernameIsRequired: "Kullanıcı adı gerekli",
+  usernameNeedsToBe3CharactersOrMore: "Kullanıcı adı 3 karakterden uzun olmalı",
+  shouldAgreeToTerms: "Hizmet Şartlarını kabul etmelisiniz",
+  somethingWentWrong: "Bir şeyler yanlış gitti",
+  usernameIsTaken: "Kullanıcı adı alınmış",
+  emailIsInUse: "Bu e-posta zaten kullanılıyor",
+};
