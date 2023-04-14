@@ -25,7 +25,7 @@ const Button: FC<ButtonProps> = (props) => {
       justifyContent='center'
       width={"1/3"}
     >
-      <Text color='coconut' fontSize='md'>
+      <Text color='coconut' fontSize='md' textAlign={"center"}>
         {title}
       </Text>
     </Pressable>
