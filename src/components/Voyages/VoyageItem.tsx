@@ -4,6 +4,8 @@ import React, { FC } from "react";
 import { Box, HStack, Pressable, Text } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import theme from "../../theme/theme";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 interface VoyageItemProps {
   voyage: VoyageType;
@@ -11,8 +13,14 @@ interface VoyageItemProps {
 
 const VoyageItem: FC<VoyageItemProps> = (props) => {
   const { voyage } = props;
+  const navigation = useNavigation<NativeStackNavigationProp<HomeParamsList>>();
+
+  const navigateToDetails = () => {
+    navigation.navigate("VoyageDetail", voyage);
+  };
   return (
     <Pressable
+      onPress={navigateToDetails}
       key={voyage.id}
       backgroundColor='blueGray.300'
       borderRadius={10}
