@@ -4,7 +4,14 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Pressable } from "native-base";
 import React from "react";
 import { useLocalization } from "../context/LocalizationContext";
-import { Home, Payment, Settings, VoyageDetail, Voyages } from "../screens";
+import {
+  Home,
+  Payment,
+  PaymentSuccess,
+  Settings,
+  VoyageDetail,
+  Voyages,
+} from "../screens";
 import theme from "../theme/theme";
 import OptionsSheet from "../components/Home/OptionsSheet";
 
@@ -14,6 +21,7 @@ const HomeNav = () => {
   return (
     <Stack.Navigator
       screenOptions={({ route, navigation }) => ({
+        headerShown: route.name !== "PaymentSuccess",
         animation: "slide_from_right",
         headerStyle: {
           backgroundColor: theme.colors.frenchBlue,
@@ -64,6 +72,13 @@ const HomeNav = () => {
         component={Settings}
         options={{
           title: strings.settings,
+        }}
+      />
+      <Stack.Screen
+        name='PaymentSuccess'
+        component={PaymentSuccess}
+        options={{
+          title: strings.paymentSuccess,
         }}
       />
     </Stack.Navigator>
