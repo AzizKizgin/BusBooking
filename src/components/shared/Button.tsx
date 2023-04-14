@@ -6,13 +6,15 @@ import { Box, Pressable, Text } from "native-base";
 interface ButtonProps {
   onPress: () => void;
   title: string;
+  marginTop?: number;
 }
 
 const Button: FC<ButtonProps> = (props) => {
-  const { onPress, title } = props;
+  const { onPress, title, marginTop } = props;
   return (
     <Pressable
       onPress={onPress}
+      marginTop={marginTop}
       bg='frenchBlue'
       shadow={2}
       p={2}
