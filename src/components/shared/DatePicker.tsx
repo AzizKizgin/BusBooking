@@ -11,10 +11,11 @@ interface DatePickerProps {
   errors?: string;
   onSelect: (item: string) => void;
   width?: number;
+  hasTitle?: boolean;
 }
 
 const DatePicker: FC<DatePickerProps> = (props) => {
-  const { placeholder, value, errors, onSelect, width } = props;
+  const { placeholder, value, errors, onSelect, width, hasTitle } = props;
   const [isModalVisible, setIsModalVisible] = useState(false);
   const handleConfirm = (date: Date) => {
     onSelect(date.toLocaleDateString("tr-TR"));
@@ -33,7 +34,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
           value={value}
           errors={errors}
           selectBox
-          title={placeholder}
+          title={hasTitle ? placeholder : undefined}
         />
       </Pressable>
       <DateTimePickerModal

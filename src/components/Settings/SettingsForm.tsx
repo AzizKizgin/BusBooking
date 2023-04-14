@@ -25,6 +25,7 @@ const SettingsForm = () => {
         onSelect={() => {}}
         placeholder={strings.birthDate}
         value={user?.birthDate || ""}
+        hasTitle
       />
       <FormInput
         placeholder={strings.password}
