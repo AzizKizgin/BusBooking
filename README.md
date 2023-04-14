@@ -53,6 +53,89 @@ Gidiş geliş için işlem yapılacaksa gidiş Istanbul, varış Ankara, gidiş 
 
 bu bilgilere utils/const dosyasında bulunan voyages datasından da ulaşılabilir
 
+```json
+{
+    id: 1,
+    origin: "Istanbul",
+    destination: "Ankara",
+    departureDate: "21.04.2023",
+    returnDate: "",
+    price: 300,
+    company: "FastBus",
+    hasReturn: false,
+  },
+  {
+    id: 2,
+    origin: "Istanbul",
+    destination: "Ankara",
+    departureDate: "21.04.2023",
+    returnDate: "",
+    price: 200,
+    company: "BusTurk",
+    hasReturn: false,
+  },
+  {
+    id: 3,
+    origin: "Ankara",
+    destination: "Istanbul",
+    departureDate: "21.04.2023",
+    returnDate: "",
+    price: 500,
+    company: "FastBus",
+    hasReturn: false,
+  },
+  {
+    id: 4,
+    origin: "Ankara",
+    destination: "Istanbul",
+    departureDate: "21.04.2023",
+    returnDate: "",
+    price: 200,
+    company: "BusTurk",
+    hasReturn: false,
+  },
+  {
+    id: 5,
+    origin: "Istanbul",
+    destination: "Ankara",
+    departureDate: "23.04.2023",
+    returnDate: "24.04.2023",
+    price: 500,
+    company: "FastBus",
+    hasReturn: true,
+  },
+  {
+    id: 6,
+    origin: "Istanbul",
+    destination: "Ankara",
+    departureDate: "23.04.2023",
+    returnDate: "24.04.2023",
+    price: 400,
+    company: "BusTurk",
+    hasReturn: true,
+  },
+  {
+    id: 7,
+    origin: "Ankara",
+    destination: "Istanbul",
+    departureDate: "23.04.2023",
+    returnDate: "24.04.2023",
+    price: 400,
+    company: "FastBus",
+    hasReturn: true,
+  },
+  {
+    id: 8,
+    origin: "Ankara",
+    destination: "Istanbul",
+    departureDate: "23.04.2023",
+    returnDate: "24.04.2023",
+    price: 450,
+    company: "BusTurk",
+    hasReturn: true,
+  },
+```
+
 ![HomeScreen](https://user-images.githubusercontent.com/65086568/232150411-2a54561a-8fd1-4b65-85b7-0fc3291ee94b.jpg)
 
 ## Seferler Ekranı
