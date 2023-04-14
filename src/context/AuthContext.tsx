@@ -3,8 +3,6 @@
 import { useToast } from "@aziz_kizgin/react-native-toast-message";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
-  User,
-  onAuthStateChanged,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
@@ -17,7 +15,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { addUserInfo } from "../data/data";
+import { addUserInfo, getUserInfo } from "../data/data";
 import { auth } from "../firebase/firebaseConfig";
 import { useLocalization } from "./LocalizationContext";
 
@@ -78,10 +76,14 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
 
   const login = async ({ email, password }: LoginProps) => {
     try {
-      await signInWithEmailAndPassword(auth, email, password).then((user) => {
-        setUser(user.user);
-        AsyncStorage.setItem("user", JSON.stringify(user.user));
-      });
+      await signInWithEmailAndPassword(auth, email, password).then(
+        async (user) => {
+          await getUserInfo(user.user?.uid).then((user) => {
+            setUser(user);
+            AsyncStorage.setItem("user", JSON.stringify(user));
+          });
+        },
+      );
     } catch (error) {
       showToast({
         color: "error",
