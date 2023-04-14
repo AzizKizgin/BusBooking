@@ -44,7 +44,7 @@ export const voyages = [
     id: 3,
     origin: "Ankara",
     destination: "Istanbul",
-    departureDate: "22.04.2023",
+    departureDate: "21.04.2023",
     returnDate: "",
     price: 500,
     company: "FastBus",
@@ -54,7 +54,7 @@ export const voyages = [
     id: 4,
     origin: "Ankara",
     destination: "Istanbul",
-    departureDate: "22.04.2023",
+    departureDate: "21.04.2023",
     returnDate: "",
     price: 200,
     company: "BusTurk",
@@ -101,3 +101,8 @@ export const voyages = [
     hasReturn: true,
   },
 ];
+
+export enum Gender {
+  Man = "0",
+  Woman = "1",
+}
