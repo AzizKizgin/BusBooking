@@ -9,8 +9,9 @@ type AuthenticationParamsList = {
 type HomeParamsList = {
   Home: undefined;
   Voyages: VoyageSearchType;
-  VoyageDetail: undefined;
-  Payment: undefined;
+  VoyageDetail: VoyageType;
+  Payment: VoyageType;
+  Settings: undefined;
 };
 
 type VoyageSearchType = {
@@ -30,4 +31,14 @@ type VoyageType = {
   price: number;
   company: string;
   hasReturn: boolean;
+};
+
+type User = {
+  id: string;
+  name: string;
+  surname: string;
+  email: string;
+  identityNumber: string;
+  birthDate: string;
+  gender: string;
 };
