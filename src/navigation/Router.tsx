@@ -15,6 +15,10 @@ const Router = () => {
   useEffect(() => {
     if (user) {
       setLoading(false);
+    } else {
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
     }
   }, [user]);
 
