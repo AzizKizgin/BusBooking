@@ -12,6 +12,7 @@ import {
 import { useAuth } from "../../context/AuthContext";
 import { Ionicons } from "@expo/vector-icons";
 import theme from "../../theme/theme";
+import { useLocalization } from "../../context/LocalizationContext";
 
 interface AccountMenuButtonProps {
   goOption: () => void;
@@ -20,6 +21,7 @@ interface AccountMenuButtonProps {
 const OptionsSheet: FC<AccountMenuButtonProps> = ({ goOption }) => {
   const { isOpen, onOpen, onClose } = useDisclose();
   const { logout } = useAuth();
+  const { strings } = useLocalization();
   return (
     <>
       <Pressable padding={2} onPress={onOpen}>
@@ -58,7 +60,7 @@ const OptionsSheet: FC<AccountMenuButtonProps> = ({ goOption }) => {
                 color={theme.colors.coconut}
               />
               <Text color={"coconut"} fontSize={"md"}>
-                Settings
+                {strings.settings}
               </Text>
             </HStack>
           </Actionsheet.Item>
@@ -77,7 +79,7 @@ const OptionsSheet: FC<AccountMenuButtonProps> = ({ goOption }) => {
                 color={theme.colors.coconut}
               />
               <Text color={"coconut"} fontSize={"md"}>
-                Log Out
+                {strings.logout}
               </Text>
             </HStack>
           </Actionsheet.Item>
