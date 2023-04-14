@@ -6,7 +6,6 @@ import React from "react";
 import { useLocalization } from "../context/LocalizationContext";
 import { Home, Payment, Settings, VoyageDetail, Voyages } from "../screens";
 import theme from "../theme/theme";
-import { Ionicons } from "@expo/vector-icons";
 import OptionsSheet from "../components/Home/OptionsSheet";
 
 const HomeNav = () => {
