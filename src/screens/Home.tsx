@@ -13,6 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useToast } from "@aziz_kizgin/react-native-toast-message";
 import theme from "../theme/theme";
+import { screen } from "../utils/consts";
 const Home = () => {
   const { user, logout } = useAuth();
   const { strings } = useLocalization();
@@ -54,45 +55,47 @@ const Home = () => {
   return (
     <Box flex={1} justifyContent='center'>
       <Bus />
-      <HStack space={8} alignSelf={"center"} marginY={5}>
-        <HStack space={2} alignSelf={"center"}>
-          <CheckBox
-            customColor={theme.colors.frenchBlue}
-            isChecked={!hasReturn}
-            onChange={() => {
-              setHasReturn(false);
-            }}
-          />
-          <Text>{strings.departure}</Text>
+      <Box top={screen.width * 0.15}>
+        <HStack space={8} alignSelf={"center"} marginY={5}>
+          <HStack space={2} alignSelf={"center"}>
+            <CheckBox
+              customColor={theme.colors.frenchBlue}
+              isChecked={!hasReturn}
+              onChange={() => {
+                setHasReturn(false);
+              }}
+            />
+            <Text>{strings.departure}</Text>
+          </HStack>
+          <HStack space={2} alignSelf={"center"}>
+            <CheckBox
+              customColor={theme.colors.frenchBlue}
+              isChecked={hasReturn}
+              onChange={() => {
+                setHasReturn(true);
+              }}
+            />
+            <Text>{strings.roundTrip}</Text>
+          </HStack>
         </HStack>
-        <HStack space={2} alignSelf={"center"}>
-          <CheckBox
-            customColor={theme.colors.frenchBlue}
-            isChecked={hasReturn}
-            onChange={() => {
-              setHasReturn(true);
-            }}
+        <VStack space={3}>
+          <CitySelectorGroup
+            origin={origin}
+            setOrigin={setOrigin}
+            destination={destination}
+            setDestination={setDestination}
+            hasReturn={hasReturn}
           />
-          <Text>{strings.roundTrip}</Text>
-        </HStack>
-      </HStack>
-      <VStack space={3}>
-        <CitySelectorGroup
-          origin={origin}
-          setOrigin={setOrigin}
-          destination={destination}
-          setDestination={setDestination}
-          hasReturn={hasReturn}
-        />
-        <DateSelectorGroup
-          departureDate={departureDate}
-          setDepartureDate={setDepartureDate}
-          returnDate={returnDate}
-          setReturnDate={setReturnDate}
-          hasReturn={hasReturn}
-        />
-        <Button onPress={handleSearch} title={strings.search} marginTop={5} />
-      </VStack>
+          <DateSelectorGroup
+            departureDate={departureDate}
+            setDepartureDate={setDepartureDate}
+            returnDate={returnDate}
+            setReturnDate={setReturnDate}
+            hasReturn={hasReturn}
+          />
+          <Button onPress={handleSearch} title={strings.search} marginTop={5} />
+        </VStack>
+      </Box>
     </Box>
   );
 };
