@@ -10,8 +10,9 @@ type HomeParamsList = {
   Home: undefined;
   Voyages: VoyageSearchType;
   VoyageDetail: VoyageType;
-  Payment: VoyageType;
+  Payment: PaymentScreenParams;
   Settings: undefined;
+  PaymentSuccess: undefined;
 };
 
 type VoyageSearchType = {
@@ -42,3 +43,5 @@ type User = {
   birthDate: string;
   gender: string;
 };
+
+type PaymentScreenParams = VoyageType & { selectedSeats: number[] };
