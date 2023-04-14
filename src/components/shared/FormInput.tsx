@@ -14,6 +14,8 @@ interface FormInputProps {
   editable?: boolean;
   selectBox?: boolean;
   title?: string;
+  width?: number;
+  maxLength?: number;
 }
 
 const FormInput: FC<FormInputProps> = (props) => {
@@ -28,6 +30,8 @@ const FormInput: FC<FormInputProps> = (props) => {
     editable,
     selectBox,
     title,
+    width,
+    maxLength,
   } = props;
   return (
     <VStack>
@@ -37,6 +41,8 @@ const FormInput: FC<FormInputProps> = (props) => {
         </Text>
       )}
       <Input
+        maxLength={maxLength}
+        width={width || "100%"}
         editable={editable}
         keyboardType={keyboardType}
         isInvalid={!!errors}
