@@ -1,6 +1,7 @@
 /** @format */
 
 import { useToast } from "@aziz_kizgin/react-native-toast-message";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   User,
   onAuthStateChanged,
@@ -66,10 +67,11 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
 
   useEffect(() => {
     const getUser = async () => {
-      const user = auth.currentUser;
-      if (user) {
-        setUser(user);
-      }
+      AsyncStorage.getItem("user").then((user) => {
+        if (user) {
+          setUser(JSON.parse(user));
+        }
+      });
     };
     getUser();
   }, []);
@@ -78,6 +80,7 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
     try {
       await signInWithEmailAndPassword(auth, email, password).then((user) => {
         setUser(user.user);
+        AsyncStorage.setItem("user", JSON.stringify(user.user));
       });
     } catch (error) {
       showToast({
@@ -86,7 +89,7 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
           color: "white",
           fontSize: 16,
         },
-        message: strings.somethingWentWrong,
+        message: strings.emailOrPasswordWrong,
       });
     }
   };
@@ -145,6 +148,7 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
     try {
       await signOut(auth);
       setUser(null);
+      AsyncStorage.removeItem("user");
     } catch (error) {
       showToast({
         color: "error",
