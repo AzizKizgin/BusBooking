@@ -5,7 +5,7 @@
 ## Kurulum
 
 Kurulum için extra bir şey yapmaya gerek yoktur.
-
+[Apk Dosyası](https://expo.dev/accounts/azizkzgn/projects/bus-booking/builds/17430c95-e88e-4ae7-8073-048152fb6067)
 Uygulamada kullanılan kütüphanler şunlardır:
 
 ```json
