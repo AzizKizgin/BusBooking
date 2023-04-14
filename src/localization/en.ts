@@ -44,4 +44,17 @@ export const en = {
   identitynumberneedsToBe11Characters:
     "Identity number needs to be 11 characters",
   registerSuccess: "Register Success",
+  emailOrPasswordWrong: "Username or password wrong",
+  voyages: "Voyages",
+  voyageDetail: "Voyage Detail",
+  payment: "Payment",
+  departureDate: "Departure Date",
+  returnDate: "Return Date",
+  search: "Search",
+  origin: "Origin",
+  destination: "Destination",
+  roundTrip: "Round Trip",
+  departure: "Departure",
+  return: "Return",
+  pleaseFillAllFields: "Please fill all fields",
 };
