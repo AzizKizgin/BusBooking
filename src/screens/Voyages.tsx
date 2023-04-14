@@ -1,11 +1,12 @@
 /** @format */
 
 import React, { useEffect, useState } from "react";
-import { Box, ScrollView, VStack } from "native-base";
+import { Box, ScrollView, VStack, Text } from "native-base";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { voyages } from "../utils/consts";
 import { ActivityIndicator } from "react-native";
 import VoyageItem from "../components/Voyages/VoyageItem";
+import { useLocalization } from "../context/LocalizationContext";
 const Voyages = () => {
   const route = useRoute<RouteProp<HomeParamsList, "Voyages">>();
   const { origin, destination, departureDate, returnDate, hasReturn } =
@@ -13,6 +14,9 @@ const Voyages = () => {
 
   const [filteredVoyages, setFilteredVoyages] = useState<VoyageType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+
+  const { strings } = useLocalization();
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -35,12 +39,22 @@ const Voyages = () => {
   return (
     <Box flex={1}>
       <ScrollView>
-        {loading && <ActivityIndicator />}
-        <VStack space={4} p={4}>
-          {filteredVoyages.map((voyage) => (
-            <VoyageItem voyage={voyage} key={voyage.id} />
-          ))}
-        </VStack>
+        {loading && <ActivityIndicator size={"large"} />}
+        {filteredVoyages.length > 0 ? (
+          <VStack space={4} p={4}>
+            {filteredVoyages.map((voyage) => (
+              <VoyageItem voyage={voyage} key={voyage.id} />
+            ))}
+          </VStack>
+        ) : (
+          !loading && (
+            <Box flex={1} justifyContent={"center"} alignItems={"center"}>
+              <Text fontSize={20} fontWeight={500}>
+                {strings.noVoyageFound}
+              </Text>
+            </Box>
+          )
+        )}
       </ScrollView>
     </Box>
   );
