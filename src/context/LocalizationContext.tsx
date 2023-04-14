@@ -12,11 +12,13 @@ interface LocalizationContextProps {
 interface LocalizationContextType {
   strings: any;
   changeLanguage: (locale: string) => void;
+  currentLanguage: string;
 }
 
 const LocalizationContext = createContext<LocalizationContextType>({
   strings: (key: string) => key,
   changeLanguage: (locale: string) => {},
+  currentLanguage: "tr",
 });
 
 export const LocalizationProvider = ({
@@ -46,6 +48,7 @@ export const LocalizationProvider = ({
       value={{
         strings,
         changeLanguage,
+        currentLanguage: locale,
       }}
     >
       {children}
