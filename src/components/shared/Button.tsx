@@ -17,7 +17,8 @@ const Button: FC<ButtonProps> = (props) => {
       marginTop={marginTop}
       bg='frenchBlue'
       shadow={2}
-      p={2}
+      py={2}
+      px={4}
       rounded={10}
       alignSelf='center'
       alignItems='center'

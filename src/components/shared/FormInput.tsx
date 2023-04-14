@@ -13,6 +13,7 @@ interface FormInputProps {
   keyboardType?: "default" | "email-address" | "numeric" | "phone-pad";
   editable?: boolean;
   selectBox?: boolean;
+  title?: string;
 }
 
 const FormInput: FC<FormInputProps> = (props) => {
@@ -26,9 +27,15 @@ const FormInput: FC<FormInputProps> = (props) => {
     keyboardType = "default",
     editable,
     selectBox,
+    title,
   } = props;
   return (
     <VStack>
+      {title && (
+        <Text color='frenchBlue' marginLeft={1}>
+          {title}
+        </Text>
+      )}
       <Input
         editable={editable}
         keyboardType={keyboardType}

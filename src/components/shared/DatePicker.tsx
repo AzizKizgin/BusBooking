@@ -33,6 +33,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
           value={value}
           errors={errors}
           selectBox
+          title={placeholder}
         />
       </Pressable>
       <DateTimePickerModal
