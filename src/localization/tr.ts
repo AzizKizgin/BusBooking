@@ -55,4 +55,9 @@ export const tr = {
   departure: "Gidiş",
   return: "Dönüş",
   pleaseFillAllFields: "Lütfen tüm alanları doldurun",
+  settings: "Ayarlar",
+  save: "Kaydet",
+  thisFeatureIsNotAvailable: "Bu özellik henüz kullanılamıyor",
+  changeLanguage: "Dil Değiştir",
+  logout: "Çıkış Yap",
 };

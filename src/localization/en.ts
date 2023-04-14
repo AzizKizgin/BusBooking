@@ -57,4 +57,9 @@ export const en = {
   departure: "Departure",
   return: "Return",
   pleaseFillAllFields: "Please fill all fields",
+  settings: "Settings",
+  save: "Save",
+  thisFeatureIsNotAvailable: "This feature is not available yet",
+  changeLanguage: "Change Language",
+  logout: "Logout",
 };
