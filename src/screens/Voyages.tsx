@@ -19,7 +19,12 @@ const Voyages = () => {
       voyages
         .filter((voyage) => voyage.hasReturn === hasReturn)
         .map((voyage) => {
-          if (voyage.origin === origin && voyage.destination === destination) {
+          if (
+            voyage.origin === origin &&
+            voyage.destination === destination &&
+            voyage.departureDate === departureDate &&
+            voyage.returnDate === returnDate
+          ) {
             setFilteredVoyages((prev) => [...prev, voyage]);
           }
         });
